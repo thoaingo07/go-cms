@@ -1,0 +1,14 @@
+{{ define "pages/blogs.html" }}
+{{ template "globals/header.html"}}
+<h1>
+Blogs
+</h1>
+<ul>
+    {{ range .blogs }}
+    <li><a>{{.Title}}</a></li>
+    {{end}}
+</ul>
+
+
+{{ template "globals/footer.html"}}
+{{ end }}
