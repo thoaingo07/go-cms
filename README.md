@@ -24,3 +24,4 @@ Revert to a specific version
 migrate -path migrations -database "postgresql://<user>:<pwd>@localhost:5432/cms?sslmode=disable" -verbose goto 1
 ```
 
+

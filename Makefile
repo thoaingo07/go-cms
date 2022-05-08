@@ -7,6 +7,9 @@ postgres:
 createdb:
 	docker exec -it postgres createdb --username=cms_app --owner=root cms
 
+migratedrop:
+	migrate -path db/migrations -database "$(DB_URL)" -verbose drop
+
 migrateup:
 	migrate -path db/migrations -database "$(DB_URL)" -verbose up
 
