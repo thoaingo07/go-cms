@@ -1,9 +1,8 @@
 # Introduction
-Headless Cms implement by Go (Echo framework) and postgres.
+Headless Cms implement by Go (Gin framework) and postgres.
 # Features
 - Authentication with JWT.
-- Support markdown.
-- Allow Api Key for front-end (static web app).
+- Allow upload zip file and custom domain.
 # Migration
 - Use https://github.com/golang-migrate/migrate
 - Generate script:
