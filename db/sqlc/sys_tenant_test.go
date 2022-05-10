@@ -1,10 +1,26 @@
 package db
-import "testing"
-func TestAddSysTenant(t *testing.T){
+
+import (
+	"context"
+	"database/sql"
+	"testing"
+	"time"
+
+	"github.com/google/uuid"
+	gonanoid "github.com/matoous/go-nanoid/v2"
+	"github.com/stretchr/testify/require"
+)
+
+func TestAddSysTenant(t *testing.T) {
+	nanoID, err := gonanoid.New(12)
 	arg := AddSysTenantParams{
-		Code: "clockwork",
-		Name:  "Clockwork Property Management",
-		SessionTimeout: 30,
+		UniqueID:       uuid.NullUUID{uuid.New(), true},
+		HandleID:       nanoID,
+		Code:           sql.NullString{"clockwork", true},
+		Name:           sql.NullString{"Clockwork Property Management", true},
+		SessionTimeout: sql.NullInt32{32, true},
+		CreatedDate:    sql.NullTime{time.Now(), true},
+		UpdatedDate:    sql.NullTime{time.Now(), true},
 	}
 	sysTenant, err := testQueries.AddSysTenant(context.Background(), arg)
 	require.NoError(t, err)
